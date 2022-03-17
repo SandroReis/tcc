@@ -11,40 +11,44 @@ import {
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { MyDropzone } from "./dropzone";
 import { AttachmentIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import axios from "axios";
 
 export const App = () => {
   const [selectedMenu, setSelectedMenu] = useState<string>("");
   const [filesToSend, setFilesToSend] = useState<any[]>([]);
 
   const AlgorithMenu = (
-    <Menu>
-      <Box maxWidth="150" height="12" display="flex">
-        <MenuItem
-          onClick={() => {
-            setFilesToSend([]);
-            setSelectedMenu("ALGORITMO_1");
-          }}
-        >
-          Algoritmo 1
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setFilesToSend([]);
-            setSelectedMenu("ALGORITMO_2");
-          }}
-        >
-          Algoritmo 2
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setFilesToSend([]);
-            setSelectedMenu("ALGORITMO_3");
-          }}
-        >
-          Algoritmo 3
-        </MenuItem>
-      </Box>
-    </Menu>
+    <>
+      <Menu>
+        <Box maxWidth="140" height="12" display="flex">
+          <MenuItem
+            onClick={() => {
+              setFilesToSend([]);
+              setSelectedMenu("ALGORITMO_1");
+            }}
+          >
+            Algoritmo 1
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              setFilesToSend([]);
+              setSelectedMenu("ALGORITMO_2");
+            }}
+          >
+            Algoritmo 2
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              setFilesToSend([]);
+              setSelectedMenu("ALGORITMO_3");
+            }}
+          >
+            Algoritmo 3
+          </MenuItem>
+        </Box>
+      </Menu>
+      <ColorModeSwitcher></ColorModeSwitcher>
+    </>
   );
 
   const Alg1 = (
@@ -58,7 +62,17 @@ export const App = () => {
         perferendis odit non.
       </Text>
       <MyDropzone setFilesToSend={setFilesToSend} />
-      <Button mb="12" onClick={() => console.log(filesToSend)}>
+      <Button
+        mb="12"
+        onClick={async () => {
+          const api = await axios.post(
+            "https://6v931cyez7.execute-api.us-east-1.amazonaws.com/",
+            filesToSend
+          );
+          console.log("api", api.data);
+          console.log("filesToSend", filesToSend);
+        }}
+      >
         Enviar
       </Button>
 
