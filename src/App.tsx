@@ -20,6 +20,20 @@ import theme from "./theme";
 export const App = () => {
   const [filesToSend, setFilesToSend] = useState<any[]>([]);
   const [selectedAlgorithms, setSelectedAlgorithms] = useState<any[]>([]);
+  const [paramsPayload, setParamsPayload] = useState<any>({
+    dfa: {
+      one: null,
+      two: null,
+    },
+    gpa: {
+      one: null,
+      two: null,
+    },
+    haralick: {
+      one: null,
+      two: null,
+    },
+  });
 
   return (
     <ChakraProvider theme={theme}>
@@ -66,12 +80,26 @@ export const App = () => {
                     disabled={!selectedAlgorithms.includes("DFA")}
                     maxWidth="48"
                     placeholder="Valor default..."
+                    value={paramsPayload.dfa.one || ""}
+                    onChange={(event) => {
+                      console.log(event.target.value);
+                      const newPayload = { ...paramsPayload };
+                      newPayload.dfa.one = event.target.value;
+                      setParamsPayload(newPayload);
+                    }}
                   ></Input>
                   <FormLabel mt="2">Parametro 2 DFA</FormLabel>
                   <Input
                     disabled={!selectedAlgorithms.includes("DFA")}
                     maxWidth="48"
                     placeholder="Valor default..."
+                    value={paramsPayload.dfa.two || ""}
+                    onChange={(event) => {
+                      console.log(event.target.value);
+                      const newPayload = { ...paramsPayload };
+                      newPayload.dfa.two = event.target.value;
+                      setParamsPayload(newPayload);
+                    }}
                   ></Input>
                 </Box>
                 <Box mt="4">
@@ -80,12 +108,26 @@ export const App = () => {
                     disabled={!selectedAlgorithms.includes("GPA")}
                     maxWidth="48"
                     placeholder="Valor default..."
+                    value={paramsPayload.gpa.one || ""}
+                    onChange={(event) => {
+                      console.log(event.target.value);
+                      const newPayload = { ...paramsPayload };
+                      newPayload.gpa.one = event.target.value;
+                      setParamsPayload(newPayload);
+                    }}
                   ></Input>
                   <FormLabel mt="2">Parametro 2 GPA</FormLabel>
                   <Input
                     disabled={!selectedAlgorithms.includes("GPA")}
                     maxWidth="48"
                     placeholder="Valor default..."
+                    value={paramsPayload.gpa.two || ""}
+                    onChange={(event) => {
+                      console.log(event.target.value);
+                      const newPayload = { ...paramsPayload };
+                      newPayload.gpa.two = event.target.value;
+                      setParamsPayload(newPayload);
+                    }}
                   ></Input>
                 </Box>
                 <Box mt="4">
@@ -94,12 +136,26 @@ export const App = () => {
                     disabled={!selectedAlgorithms.includes("Haralick")}
                     maxWidth="48"
                     placeholder="Valor default..."
+                    value={paramsPayload.haralick.one || ""}
+                    onChange={(event) => {
+                      console.log(event.target.value);
+                      const newPayload = { ...paramsPayload };
+                      newPayload.haralick.one = event.target.value;
+                      setParamsPayload(newPayload);
+                    }}
                   ></Input>
                   <FormLabel mt="2">Parametro 2 Haralick</FormLabel>
                   <Input
                     disabled={!selectedAlgorithms.includes("Haralick")}
                     maxWidth="48"
                     placeholder="Valor default..."
+                    value={paramsPayload.haralick.two || ""}
+                    onChange={(event) => {
+                      console.log(event.target.value);
+                      const newPayload = { ...paramsPayload };
+                      newPayload.haralick.two = event.target.value;
+                      setParamsPayload(newPayload);
+                    }}
                   ></Input>
                 </Box>
               </Box>
