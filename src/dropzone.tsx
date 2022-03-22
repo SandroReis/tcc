@@ -20,7 +20,7 @@ export function MyDropzone({
       alignItems="center"
       bg={"#2b313d"}
       height="200"
-      margin="12"
+      m="12"
       {...getRootProps()}
     >
       <input {...getInputProps()} />
