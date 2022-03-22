@@ -47,7 +47,7 @@ export const App = () => {
             que esperar como resposta.
           </Text>
           <FormControl variant="floating">
-            <Box display="flex" justifyContent="space-around" mt="8">
+            <Box display="flex" justifyContent="space-between" mt="8">
               <Box mt="8">
                 <CheckboxGroup
                   onChange={(value) => setSelectedAlgorithms(value)}
@@ -156,9 +156,8 @@ export const App = () => {
               </Box>
             </Box>
             <MyDropzone setFilesToSend={setFilesToSend} />
-            <Box display="flex" justifyContent="center">
+            <Box display="flex" mb="2" justifyContent="center">
               <Button
-                mb="12"
                 onClick={async () => {
                   const api = await axios.post(
                     "https://6v931cyez7.execute-api.us-east-1.amazonaws.com/",
@@ -166,12 +165,12 @@ export const App = () => {
                   );
                   console.log("api", api.data);
                   console.log("filesToSend", filesToSend);
+                  setFilesToSend([]);
                 }}
               >
                 Enviar
               </Button>
             </Box>
-
             {filesToSend.map((file) => (
               <Box display="flex">
                 <AttachmentIcon mt="1"></AttachmentIcon>
