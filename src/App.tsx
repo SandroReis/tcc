@@ -82,7 +82,6 @@ export const App = () => {
                     placeholder="Valor default..."
                     value={paramsPayload.dfa.one || ""}
                     onChange={(event) => {
-                      console.log(event.target.value);
                       const newPayload = { ...paramsPayload };
                       newPayload.dfa.one = event.target.value;
                       setParamsPayload(newPayload);
@@ -95,7 +94,6 @@ export const App = () => {
                     placeholder="Valor default..."
                     value={paramsPayload.dfa.two || ""}
                     onChange={(event) => {
-                      console.log(event.target.value);
                       const newPayload = { ...paramsPayload };
                       newPayload.dfa.two = event.target.value;
                       setParamsPayload(newPayload);
@@ -110,7 +108,6 @@ export const App = () => {
                     placeholder="Valor default..."
                     value={paramsPayload.gpa.one || ""}
                     onChange={(event) => {
-                      console.log(event.target.value);
                       const newPayload = { ...paramsPayload };
                       newPayload.gpa.one = event.target.value;
                       setParamsPayload(newPayload);
@@ -138,7 +135,6 @@ export const App = () => {
                     placeholder="Valor default..."
                     value={paramsPayload.haralick.one || ""}
                     onChange={(event) => {
-                      console.log(event.target.value);
                       const newPayload = { ...paramsPayload };
                       newPayload.haralick.one = event.target.value;
                       setParamsPayload(newPayload);
@@ -151,7 +147,6 @@ export const App = () => {
                     placeholder="Valor default..."
                     value={paramsPayload.haralick.two || ""}
                     onChange={(event) => {
-                      console.log(event.target.value);
                       const newPayload = { ...paramsPayload };
                       newPayload.haralick.two = event.target.value;
                       setParamsPayload(newPayload);
