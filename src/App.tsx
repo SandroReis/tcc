@@ -47,7 +47,7 @@ export const App = () => {
             que esperar como resposta.
           </Text>
           <FormControl variant="floating">
-            <Box display="flex" justifyContent="space-between" mt="8">
+            <Box display="flex" justifyContent="space-between" mt="8" mx="4">
               <Box mt="8">
                 <CheckboxGroup
                   onChange={(value) => setSelectedAlgorithms(value)}
@@ -159,12 +159,20 @@ export const App = () => {
             <Box display="flex" mb="2" justifyContent="center">
               <Button
                 onClick={async () => {
-                  const api = await axios.post(
-                    "https://6v931cyez7.execute-api.us-east-1.amazonaws.com/",
-                    filesToSend
+                  const formData = new FormData();
+                  filesToSend.forEach((files, index) => {
+                    formData.append(`file_${index}`, files);
+                  });
+                  formData.append("payload", JSON.stringify(paramsPayload));
+                  formData.append(
+                    "algoritmos",
+                    JSON.stringify(selectedAlgorithms)
                   );
-                  console.log("api", api.data);
-                  console.log("filesToSend", filesToSend);
+                  const api = await axios.post(
+                    "https://pw6815tgu8.execute-api.us-east-1.amazonaws.com/api/upload",
+                    formData
+                  );
+                  console.log(api);
                   setFilesToSend([]);
                 }}
               >
